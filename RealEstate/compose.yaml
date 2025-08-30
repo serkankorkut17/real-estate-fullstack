@@ -1,0 +1,71 @@
+services:
+  realestate.api:
+    image: mcr.microsoft.com/dotnet/sdk:8.0.204
+    container_name: realestate.api
+    user: root
+    working_dir: /src
+    ports:
+      - "8000:8000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8000
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - DOTNET_WATCH_RESTART_ON_RUDE_EDIT=1
+    volumes:
+      - ./:/src:delegated
+      - ./RealEstate.API/appsettings.Development.json:/src/RealEstate.API/appsettings.Development.json:ro
+      - ~/.vsdbg:/remote_debugger:rw
+    command:
+      [
+        "dotnet",
+        "watch",
+        "run",
+        "--project",
+        "RealEstate.API/RealEstate.API.csproj",
+        "--urls",
+        "http://+:8000",
+      ]
+    depends_on:
+      realestate.database:
+        condition: service_healthy
+
+  realestate.database:
+    image: postgres:latest
+    container_name: realestate.database
+    environment:
+      - POSTGRES_DB=realestate
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - realestate_db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d realestate"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: realestate.pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "8080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      realestate.database:
+        condition: service_healthy
+
+  realestate.redis:
+    image: redis:latest
+    container_name: realestate.redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  realestate_db_data:
+  pgadmin_data:

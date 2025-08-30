@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--breakpoint-*: initial;
+	--breakpoint-xs: 375px;
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-1_5xl: 1440px;
+	--breakpoint-2xl: 1536px;
+	--breakpoint-3xl: 1600px;
+	--breakpoint-4xl: 1920px;
+}
+
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 transition-colors duration-300; /* Light theme */
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-gray-50; /* Dark theme */
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "email": {
+    "required": "Email adresi gereklidir",
+    "invalid": "Geçerli bir email adresi girin",
+    "max": "Email adresi 50 karakterden uzun olamaz"
+  },
+  "password": {
+    "required": "Şifre gereklidir",
+    "min": "Şifre en az 8 karakter olmalıdır",
+    "max": "Şifre 32 karakterden uzun olamaz",
+    "regex": "Şifre en az bir büyük harf, bir küçük harf ve bir rakam içermelidir"
+  },
+  "firstName": {
+    "required": "Ad gereklidir",
+    "min": "Ad en az 2 karakter olmalıdır",
+    "max": "Ad 50 karakterden uzun olamaz",
+    "regex": "Ad sadece harf ve boşluk içerebilir"
+  },
+  "lastName": {
+    "required": "Soyad gereklidir",
+    "min": "Soyad en az 2 karakter olmalıdır",
+    "max": "Soyad 50 karakterden uzun olamaz",
+    "regex": "Soyad sadece harf ve boşluk içerebilir"
+  },
+  "confirmPassword": {
+    "required": "Şifre onayı gereklidir",
+    "match": "Şifreler eşleşmiyor"
+  }
+}

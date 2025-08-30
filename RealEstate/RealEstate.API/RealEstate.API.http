@@ -1,0 +1,47 @@
+@RealEstateAPI_HostAddress = http://localhost:8000
+
+GET {{RealEstateAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+POST {{RealEstateAPI_HostAddress}}/api/properties
+# Content-Type: multipart/form-data
+
+Title: 3+1 Apartment for Sale in Beylikdüzü
+Description: Spacious 3+1 apartment with sea view in Beylikdüzü.
+PropertyTypeId: 1
+PropertyStatusId: 1
+Country: Turkey
+City: İstanbul
+District: Beylikdüzü
+Neighborhood: Adnan Kahveci Mah.
+Street: Atatürk Caddesi
+AddressLine: 1234 Street, No: 56, Floor: 3
+Latitude: 41.0053
+Longitude: 28.7000
+Price: 500000
+CurrencyId: 1
+Deposit: 10000
+MonthlyFee: 250
+GrossArea: 105
+NetArea: 85
+RoomCount: 3+1
+BuildingAge: 6
+FloorNumber: 1
+TotalFloors: 4
+BathroomCount: 2
+HeatingType: Central Heating
+HasKitchen: true
+HasBalcony: true
+HasElevator: true
+HasParking: true
+HasGarden: false
+IsFurnished: false
+UsageStatus: Empty
+IsInComplex: false
+IsEligibleForLoan: true
+DeedStatus: Kat Mülkiyeti
+ListedBy: Sahibinden
+IsExchangeable: false
+OwnerId: 1
+StartDate: 2024-08-08T00:00:00Z

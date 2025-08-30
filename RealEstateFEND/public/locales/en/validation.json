@@ -1,0 +1,29 @@
+{
+  "email": {
+    "required": "Email is required",
+    "invalid": "Please enter a valid email address",
+    "max": "Email cannot be longer than 50 characters"
+  },
+  "password": {
+    "required": "Password is required",
+    "min": "Password must be at least 8 characters",
+    "max": "Password cannot be longer than 32 characters",
+    "regex": "Password must contain at least one uppercase letter, one lowercase letter, and one number"
+  },
+  "firstName": {
+    "required": "First name is required",
+    "min": "First name must be at least 2 characters",
+    "max": "First name cannot be longer than 50 characters",
+    "regex": "First name can only contain letters and spaces"
+  },
+  "lastName": {
+    "required": "Last name is required",
+    "min": "Last name must be at least 2 characters",
+    "max": "Last name cannot be longer than 50 characters",
+    "regex": "Last name can only contain letters and spaces"
+  },
+  "confirmPassword": {
+    "required": "Password confirmation is required",
+    "match": "Passwords do not match"
+  }
+}
